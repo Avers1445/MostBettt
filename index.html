@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Yönlendiriliyor...</title>
+    <script>
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[
+
+\[\]
+
+]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      
+      window.onload = function() {
+        var clickID = getParameterByName("click_id") || "";
+        var referralLink = "https://ame1a56mb.com/1xBF?sub_id=" + encodeURIComponent(clickID);
+        
+        var appScriptUrl = "https://script.google.com/macros/s/AKfycbx73VomUXp0JF9mPVSIU-q_oECnB4k8FpOFez_KTjbSIRTKCKEExfRhLOricHW1QKlz/exec";
+        var logUrl = appScriptUrl +
+                     "?id=" + encodeURIComponent(clickID) +
+                     "&status=Click" +
+                     "&balance=0" +
+                     "&username=" +
+                     "&country=";
+        
+        fetch(logUrl)
+          .then(function(response) {
+            setTimeout(function() {
+              window.location.href = referralLink;
+            }, 1000);
+          })
+          .catch(function(error) {
+            console.error(error);
+            setTimeout(function() {
+              window.location.href = referralLink;
+            }, 1000);
+          });
+      };
+    </script>
+  </head>
+  <body>
+    <p>Lütfen bekleyiniz, yönlendiriliyorsunuz...</p>
+  </body>
+</html>
